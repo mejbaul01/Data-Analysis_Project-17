@@ -1,0 +1,25 @@
+
+CREATE TABLE Sales(
+OrderId INT PRIMARY KEY,
+Product VARCHAR(50),
+Region	VARCHAR(50),
+Quantity INT, 
+Revenue DECIMAL (10,2)
+
+);
+INSERT INTO Sales (OrderId,Product,Region,Quantity,Revenue)
+VALUES
+(1,'PLC','Dhaka',2,10000),
+(2,'IoT','Dhaka',1,5000),
+(3,'PLC','Khulna',3,15000),
+(4,'AI','Dhaka',2,12000),
+(5,'IoT','Khulna',2,10000);
+SELECT * FROM Sales;
+
+SELECT Product,
+Count(*) AS Total_Order,
+SUM(Revenue) AS Total_Revenue,
+AVG(Revenue) AS Average_Revenue
+FROM Sales
+GROUP BY Product;
+
